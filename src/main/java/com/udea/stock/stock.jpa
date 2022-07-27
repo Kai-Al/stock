@@ -1,1 +1,177 @@
-
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<entity-mappings ptype="MONOLITH" ppkg="com.udea.stock" epkg="entity" v="5.4.3" rws="_16588776252972" Pws="_16588776252972" cws="_16588776252972" persistenceUnitName="com.udea_stock_war_1.0-SNAPSHOTPU" pp="E" sm="false" xs="false" id="_16588776252971" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <entity name="TipoProducto" uil="TipoProducto" compositePrimaryKeyClass="TipoProductoPK" abs="false" class="TipoProducto" v="true" jbn="false" xre="false" m="false" rootElement="_16588776252971" id="_16588776876013">
+        <ts e="true">
+            <a>_16588776876274</a>
+            <a>_16588779707449</a>
+        </ts>
+        <hc e="true">
+            <a>_16588776876274</a>
+        </hc>
+        <eq e="true">
+            <a>_16588776876274</a>
+        </eq>
+        <con am="PUBLIC" e="true">
+            <a>_16588776876274</a>
+            <a>_16588779707449</a>
+        </con>
+        <con am="PUBLIC" e="true"/>
+        <ath>kaiki</ath>
+        <attributes>
+            <basic attribute-type="String" v="true" xvt="" name="tipoProducto" uil="TipoProducto" ft="false" id="_16588779707449">
+                <xwm/>
+                <xm/>
+                <bv>
+                    <nu m="Tipo producto requerido"/>
+                </bv>
+                <column unique="false" nullable="false" insertable="true" updatable="true"/>
+            </basic>
+            <one-to-many orp="false" collection-type="java.util.List" cit="java.util.ArrayList" connected-entity-id="_16588776891246" connected-attribute-id="_165887980943517" v="true" xvt="" name="productoes" id="_165887980943618">
+                <xwm/>
+                <xm/>
+            </one-to-many>
+            <id attribute-type="Long" v="true" xvt="" name="id" ui="false" ft="false" id="_16588776876274">
+                <xwm/>
+                <xm/>
+                <bv>
+                    <nu m="id requerido"/>
+                </bv>
+                <column name="id" unique="true" nullable="false" insertable="true" updatable="true"/>
+                <generated-value strategy="DEFAULT"/>
+            </id>
+        </attributes>
+        <nq e="false" name="TipoProducto.findAll">
+            <query>Select e from TipoProducto e</query>
+        </nq>
+        <nq e="false" name="TipoProducto.findByTipoProducto">
+            <query>Select t from TipoProducto t where t.tipoProducto=:tipoProducto</query>
+        </nq>
+    </entity>
+    <entity uil="Producto" pt="PAGER" compositePrimaryKeyType="D" compositePrimaryKeyClass="ProductoPK" abs="false" class="Producto" v="true" jbn="false" xre="false" m="false" rootElement="_16588776252971" id="_16588776891246">
+        <ts e="true">
+            <a>_16588776891257</a>
+            <a>_165887797905110</a>
+            <a>_165887798425311</a>
+            <a>_165887798469412</a>
+            <a>_165887798508713</a>
+            <a>_165887798548614</a>
+            <a>_165887802771315</a>
+        </ts>
+        <hc e="true">
+            <a>_16588776891257</a>
+        </hc>
+        <eq e="true">
+            <a>_16588776891257</a>
+        </eq>
+        <con am="PUBLIC" e="true">
+            <a>_16588776891257</a>
+            <a>_165887797905110</a>
+            <a>_165887798425311</a>
+            <a>_165887798469412</a>
+            <a>_165887798508713</a>
+            <a>_165887798548614</a>
+            <a>_165887802771315</a>
+        </con>
+        <con am="PUBLIC" e="true"/>
+        <ath>kaiki</ath>
+        <attributes>
+            <basic attribute-type="String" v="true" xvt="" name="nombre" uil="Nombre" ft="false" id="_165887797905110">
+                <xwm/>
+                <xm/>
+                <bv>
+                    <nu m="Nombre requerido"/>
+                </bv>
+                <column name="nombre" unique="false" nullable="false" insertable="true" updatable="true"/>
+            </basic>
+            <basic attribute-type="java.util.Date" v="true" xvt="" name="fechaIngreso" uil="fechaIngreso" ft="false" id="_165887798425311">
+                <xwm/>
+                <xm/>
+                <bv>
+                    <nu m="Debe ingresar una fecha"/>
+                    <pp m="Debe ingresar una fecha igual o anterior a la acutal"/>
+                </bv>
+                <temporal>DATE</temporal>
+                <column name="fechaIngreso" unique="false" nullable="false" insertable="true" updatable="true"/>
+            </basic>
+            <basic attribute-type="Double" v="true" xvt="" name="precio" uil="precio" ft="false" id="_165887798469412">
+                <xwm/>
+                <xm/>
+                <bv>
+                    <nu m="precio requerido"/>
+                    <pz m="Ingrese un valor igual o superior a 0"/>
+                </bv>
+                <column name="precio" unique="false" nullable="false" insertable="true" updatable="true" precision="0" scale="0"/>
+            </basic>
+            <basic attribute-type="int" v="true" xvt="" name="cantidadDisponible" uil="Cantidad" ft="false" id="_165887798508713">
+                <xwm/>
+                <xm/>
+                <bv>
+                    <nu m="Cantidad requerida"/>
+                    <ma v="1000" m="El valor máximo es 1000 productos"/>
+                    <pz m="Debe ingresar valores positivos o cero"/>
+                </bv>
+                <column name="cantidadDisponible" unique="false" nullable="false" insertable="true" updatable="true" precision="0"/>
+            </basic>
+            <basic attribute-type="String" v="true" xvt="" name="descripcion" uil="Descripción" ft="false" id="_165887798548614">
+                <xwm/>
+                <xm/>
+                <bv>
+                    <nu m="Ingrese una descripción"/>
+                </bv>
+                <column name="descripcion" unique="false" nullable="false" insertable="true" updatable="true"/>
+            </basic>
+            <basic attribute-type="String" v="true" xvt="" name="emailProveedor" uil="Email" ft="false" id="_165887802771315">
+                <xwm/>
+                <xm/>
+                <bv>
+                    <nu m="Debe ingresar un email"/>
+                    <em r=".+[@].+[\\.].+ " m="Email en formato invalido "/>
+                </bv>
+                <column name="emailProveedor" unique="false" nullable="false" insertable="true" updatable="true"/>
+            </basic>
+            <many-to-one optional="true" primaryKey="true" connected-entity-id="_16588776876013" connected-attribute-id="_165887980943618" v="true" xvt="" name="tipoProducto" id="_165887980943517">
+                <xwm/>
+                <xm/>
+            </many-to-one>
+            <id attribute-type="Long" v="true" xvt="" name="id" ui="false" ft="false" id="_16588776891257">
+                <xwm/>
+                <xm/>
+                <bv>
+                    <nu m="Id requerido"/>
+                </bv>
+                <column name="id" unique="false" nullable="false" insertable="true" updatable="true"/>
+                <generated-value strategy="DEFAULT"/>
+            </id>
+        </attributes>
+        <nq e="true" name="Producto.findAll">
+            <query>Select e from Producto e</query>
+        </nq>
+        <nq e="true" name="Producto.findByNombre">
+            <query>Select p from Producto p where p.nombre=:nombre</query>
+        </nq>
+        <nq e="true" name="Producto.findByFechaIngreso">
+            <query>Select p from Producto p where p.fechaIngreso=:fechaIngreso</query>
+        </nq>
+        <nq e="true" name="Producto.findByPrecio">
+            <query>Select p from Producto p where p.precio=:precio</query>
+        </nq>
+        <nq e="true" name="Producto.findByCantidadDisponible">
+            <query>Select p from Producto p where p.cantidadDisponible=:cantidadDisponible</query>
+        </nq>
+        <nq e="true" name="Producto.findByDescripcion">
+            <query>Select p from Producto p where p.descripcion=:descripcion</query>
+        </nq>
+        <nq e="true" name="Producto.findByEmailProveedor">
+            <query>Select p from Producto p where p.emailProveedor=:emailProveedor</query>
+        </nq>
+    </entity>
+    <c>
+        <db u="jdbc:mysql://localhost:3300/stock?zeroDateTimeBehavior=CONVERT_TO_NULL" n="root" p="root" d="com.mysql.cj.jdbc.Driver"/>
+    </c>
+    <wsl>
+        <ws n="Main" id="_16588776252972">
+            <i ref="_16588776876013" x="236" y="157"/>
+            <i ref="_16588776891246" x="523" y="157"/>
+        </ws>
+    </wsl>
+</entity-mappings>
