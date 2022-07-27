@@ -1,5 +1,6 @@
 package com.udea.stock.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 import javax.persistence.Basic;
@@ -14,13 +15,14 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
-import javax.validation.constraints.Null;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.PositiveOrZero;
 
 /**
  * @author kaiki
  */
+
 @Entity
 @IdClass(ProductoPK.class)
 @NamedQuery(name = "Producto.findAll", query = "Select e from Producto e")
@@ -30,42 +32,42 @@ import javax.validation.constraints.PositiveOrZero;
 @NamedQuery(name = "Producto.findByCantidadDisponible", query = "Select p from Producto p where p.cantidadDisponible=:cantidadDisponible")
 @NamedQuery(name = "Producto.findByDescripcion", query = "Select p from Producto p where p.descripcion=:descripcion")
 @NamedQuery(name = "Producto.findByEmailProveedor", query = "Select p from Producto p where p.emailProveedor=:emailProveedor")
-public class Producto {
+public class Producto implements Serializable {
 
     @Id
     @GeneratedValue
     @Column(name = "id", nullable = false)
-    @Null(message = "Id requerido")
+    @NotNull(message = "Id requerido")
     private Long id;
     @Basic
     @Column(name = "nombre", nullable = false)
-    @Null(message = "Nombre requerido")
+    @NotNull(message = "nombre requerido")
     private String nombre;
     @Basic
     @Column(name = "fechaIngreso", nullable = false)
     @Temporal(TemporalType.DATE)
-    @Null(message = "Debe ingresar una fecha")
+    @NotNull(message = "Fecha requerida")
     @PastOrPresent(message = "Debe ingresar una fecha igual o anterior a la acutal")
     private Date fechaIngreso;
     @Basic
     @Column(name = "precio", nullable = false)
-    @Null(message = "precio requerido")
+    @NotNull(message = "Precio requerido")
     @PositiveOrZero(message = "Ingrese un valor igual o superior a 0")
     private Double precio;
     @Basic
     @Column(name = "cantidadDisponible", nullable = false)
-    @Null(message = "Cantidad requerida")
+    @NotNull(message = "Cantidad requerida")
     @Max(value = 1000, message = "El valor mÃ¡ximo es 1000 productos")
     @PositiveOrZero(message = "Debe ingresar valores positivos o cero")
     private int cantidadDisponible;
     @Basic
     @Column(name = "descripcion", nullable = false)
-    @Null(message = "Ingrese una descripciÃ³n")
+    @NotNull(message = "DescripciÃ³n requerida")
     private String descripcion;
     @Basic
     @Column(name = "emailProveedor", nullable = false)
-    @Null(message = "Debe ingresar un email")
-    @Email(regexp = ".+[@].+[\\.].+ ", message = "Email en formato invalido ")
+    @NotNull(message = "Email Requerido")
+    //@Email(regexp = ".+[@].+[\\.].+ ", message = "Email en formato invalido ")
     private String emailProveedor;
     @Id
     @ManyToOne

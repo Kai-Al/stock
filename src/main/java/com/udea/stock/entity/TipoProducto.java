@@ -1,5 +1,6 @@
 package com.udea.stock.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -9,22 +10,23 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.validation.constraints.Null;
+import javax.validation.constraints.NotNull;
 
 /**
  * @author kaiki
  */
+
 @Entity(name = "TipoProducto")
-public class TipoProducto {
+public class TipoProducto implements Serializable {
 
     @Id
     @GeneratedValue
     @Column(name = "id", unique = true, nullable = false)
-    @Null(message = "id requerido")
+    @NotNull(message = "tipo producto requerido")
     private Long id;
     @Basic
     @Column(nullable = false)
-    @Null(message = "Tipo producto requerido")
+    @NotNull(message = "tipo Producto requerido")
     private String tipoProducto;
     @OneToMany(mappedBy = "tipoProducto")
     private List<Producto> productoes;

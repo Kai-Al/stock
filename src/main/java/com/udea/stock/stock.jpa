@@ -22,7 +22,7 @@
                 <xwm/>
                 <xm/>
                 <bv>
-                    <nu m="Tipo producto requerido"/>
+                    <nn m="tipo Producto requerido"/>
                 </bv>
                 <column unique="false" nullable="false" insertable="true" updatable="true"/>
             </basic>
@@ -34,7 +34,7 @@
                 <xwm/>
                 <xm/>
                 <bv>
-                    <nu m="id requerido"/>
+                    <nn m="tipo producto requerido"/>
                 </bv>
                 <column name="id" unique="true" nullable="false" insertable="true" updatable="true"/>
                 <generated-value strategy="DEFAULT"/>
@@ -79,7 +79,7 @@
                 <xwm/>
                 <xm/>
                 <bv>
-                    <nu m="Nombre requerido"/>
+                    <nn m="nombre requerido"/>
                 </bv>
                 <column name="nombre" unique="false" nullable="false" insertable="true" updatable="true"/>
             </basic>
@@ -87,7 +87,7 @@
                 <xwm/>
                 <xm/>
                 <bv>
-                    <nu m="Debe ingresar una fecha"/>
+                    <nn m="Fecha requerida"/>
                     <pp m="Debe ingresar una fecha igual o anterior a la acutal"/>
                 </bv>
                 <temporal>DATE</temporal>
@@ -97,7 +97,7 @@
                 <xwm/>
                 <xm/>
                 <bv>
-                    <nu m="precio requerido"/>
+                    <nn m="Precio requerido"/>
                     <pz m="Ingrese un valor igual o superior a 0"/>
                 </bv>
                 <column name="precio" unique="false" nullable="false" insertable="true" updatable="true" precision="0" scale="0"/>
@@ -106,7 +106,7 @@
                 <xwm/>
                 <xm/>
                 <bv>
-                    <nu m="Cantidad requerida"/>
+                    <nn m="Cantidad requerida"/>
                     <ma v="1000" m="El valor máximo es 1000 productos"/>
                     <pz m="Debe ingresar valores positivos o cero"/>
                 </bv>
@@ -116,7 +116,7 @@
                 <xwm/>
                 <xm/>
                 <bv>
-                    <nu m="Ingrese una descripción"/>
+                    <nn m="Descripción requerida"/>
                 </bv>
                 <column name="descripcion" unique="false" nullable="false" insertable="true" updatable="true"/>
             </basic>
@@ -124,8 +124,8 @@
                 <xwm/>
                 <xm/>
                 <bv>
-                    <nu m="Debe ingresar un email"/>
-                    <em r=".+[@].+[\\.].+ " m="Email en formato invalido "/>
+                    <nn m="Email Requerido"/>
+                    <em r=".+[@].+[\\.].+  " m="Email en formato invalido "/>
                 </bv>
                 <column name="emailProveedor" unique="false" nullable="false" insertable="true" updatable="true"/>
             </basic>
@@ -137,7 +137,7 @@
                 <xwm/>
                 <xm/>
                 <bv>
-                    <nu m="Id requerido"/>
+                    <nn m="Id requerido"/>
                 </bv>
                 <column name="id" unique="false" nullable="false" insertable="true" updatable="true"/>
                 <generated-value strategy="DEFAULT"/>
